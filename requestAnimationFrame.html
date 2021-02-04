@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        body{background-color:#000; cursor:none;}
+        h1{color:#fff;}
+        .cursor_item{ position: absolute; top:0; left:0; width:100px; height:100px; background-color:#f00; margin:-50px 0 0 -50px; border-radius:50%;}
+    </style>
+    <script>
+    window.onload = function(){
+        let h1 = document.getElementsByTagName("h1")[0];
+        let cursor_item = document.getElementsByClassName("cursor_item")[0];
+        window.addEventListener("mousemove", mouseFunc, false);
+
+        function mouseFunc(e){
+            h1.innerHTML ="X:" +  e.clientX + " / " + "Y:" +  + e.clientY;
+            cursor_item.style.transform = "translate(" + e.clientX +"px," + e.clientY +"px)";
+            console.log("X축 위치" + e.clientX + "/" + "Y축 위치" +  e.clientY);
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>test</h1>
+    <div class="cursor_item"></div>
+</body>
+</html>
